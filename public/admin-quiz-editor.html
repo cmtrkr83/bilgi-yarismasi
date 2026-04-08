@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Editörü</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page admin-page">
+      <section class="hero card">
+        <div class="admin-topbar">
+          <div>
+            <h1 id="quizPageTitle">Quiz Editörü</h1>
+            <p id="quizPageSubtitle">Quiz ve soru düzenleme</p>
+          </div>
+          <nav class="admin-nav">
+            <a class="nav-link" href="/admin.html">Katılımcı Yönetimi</a>
+            <a class="nav-link" href="/admin-session.html">Yarışma Yönetimi</a>
+            <a class="nav-link" href="/admin-quizzes.html">Quizler</a>
+            <a class="nav-link" href="/admin-scores.html">Puan Tablosu</a>
+            <a class="nav-link active" href="/admin-quiz-editor.html">Editör</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="card editor-panel">
+        <div class="editor-toolbar">
+          <div>
+            <div class="quiz-title-row">
+              <h2 id="quizHeading">Quiz yükleniyor...</h2>
+              <button id="editQuizTitleBtn" class="icon-btn" type="button" aria-label="Quiz adını düzenle">✎</button>
+            </div>
+            <div id="quizTitleEditRow" class="quiz-title-edit hidden">
+              <input id="quizTitleInlineInput" placeholder="Quiz adı" />
+              <button id="saveQuizTitleInlineBtn" class="secondary" type="button">Kaydet</button>
+              <button id="cancelQuizTitleInlineBtn" class="danger" type="button">İptal</button>
+            </div>
+            <p class="muted" id="quizMeta">Sorular burada düzenlenecek.</p>
+          </div>
+          <div class="editor-actions">
+            <button id="openQuestionModalBtn" class="secondary" type="button">Soru Ekle / Düzenle</button>
+            <button id="importQuestionsBtn" type="button">Soruları Excel'den İçe Aktar</button>
+            <a id="downloadExcelTemplateLink" class="action-link" href="/api/templates/questions-excel">Excel Şablonu</a>
+            <input id="excelImportInput" type="file" accept=".xlsx,.xls" class="hidden" />
+          </div>
+        </div>
+
+        <div class="editor-layout">
+          <article class="card">
+            <h2>Quiz Soruları</h2>
+            <div id="questionList" class="question-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="questionEditorModal" class="preview-modal hidden" aria-hidden="true">
+      <div id="questionEditorBackdrop" class="preview-modal__backdrop"></div>
+      <section class="preview-modal__content" role="dialog" aria-modal="true" aria-label="Soru ekle veya düzenle">
+        <div class="preview-panel__header">
+          <h3 id="questionEditorModalTitle">Soru Ekle / Düzenle</h3>
+          <button id="closeQuestionModalBtn" type="button" class="danger">Kapat</button>
+        </div>
+        <div class="editor-form">
+          <select id="questionType">
+            <option value="mcq">Çoktan Seçmeli</option>
+            <option value="open">Açık Uçlu</option>
+          </select>
+          <textarea id="questionText" placeholder="Soru metni"></textarea>
+          <input id="questionImageUrl" placeholder="Soru görseli URL (isteğe bağlı)" />
+          <div id="questionMcqFields" class="editor-form">
+                <label class="option-count-control" for="questionOptionCount">
+                  <span>Seçenek Sayısı: <strong id="questionOptionCountValue">4</strong></span>
+                  <input id="questionOptionCount" type="range" min="2" max="5" step="1" value="4" />
+                </label>
+            <div id="questionOptionInputs" class="option-input-list"></div>
+          </div>
+          <div id="questionOpenFields" class="editor-form hidden">
+            <input id="questionCorrectOpen" placeholder="Doğru cevap" />
+          </div>
+          <div class="form-grid">
+            <label class="field-label" for="questionTime">
+              Süre (saniye)
+              <input id="questionTime" type="number" value="30" min="1" placeholder="Örn: 30" />
+            </label>
+            <label class="field-label" for="questionPoints">
+              Soru Puanı
+              <input id="questionPoints" type="number" value="10" min="1" placeholder="Örn: 10" />
+            </label>
+          </div>
+          <div class="editor-actions">
+            <button id="saveQuestionBtn" class="secondary">Soruyu Kaydet</button>
+            <button id="previewDraftBtn" type="button">Önizleme</button>
+            <button id="cancelQuestionEditBtn" class="danger">Vazgeç</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="questionPreviewModal" class="preview-modal hidden" aria-hidden="true">
+      <div id="previewModalBackdrop" class="preview-modal__backdrop"></div>
+      <section class="preview-modal__content" role="dialog" aria-modal="true" aria-label="Katılımcı ekranı önizleme">
+        <div class="preview-panel__header">
+          <h3>Katılımcı Ekranı Önizleme</h3>
+          <button id="closePreviewBtn" type="button" class="danger">Kapat</button>
+        </div>
+        <p id="previewMeta" class="question-item__subtitle"></p>
+        <div class="question" id="previewQuestionText"></div>
+        <div id="previewQuestionMediaWrap" class="question-media-wrap hidden">
+          <img id="previewQuestionMediaImage" class="question-media" alt="Önizleme soru görseli" />
+        </div>
+        <div id="previewAnswerArea"></div>
+      </section>
+    </div>
+
+    <script src="/admin-quiz-editor.js"></script>
+  </body>
+</html>

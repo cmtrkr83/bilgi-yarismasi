@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katılımcı</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page participant-page">
+      <div class="timer-widget hidden floating-timer" id="participantTimer">
+        <div class="timer-orb"></div>
+        <div class="timer-meta">
+          <span>Kalan Süre</span>
+          <strong id="participantTimerValue">-- sn</strong>
+        </div>
+      </div>
+
+      <section class="card participant-panel" id="participantPanel">
+        <div id="joinCard" class="participant-view">
+          <h1>Yarışmaya Katıl</h1>
+          <input id="joinCode" placeholder="Yarışma kodu" maxlength="6" />
+          <input id="joinName" placeholder="Adın" />
+          <button id="joinBtn">Katıl</button>
+          <div id="joinMessage" class="notice hidden"></div>
+        </div>
+
+        <div id="liveCard" class="participant-view hidden">
+        <article class="participant-status-card">
+          <div class="participant-status-text">
+            <h2 id="participantStatusTitle">Yarışmaya Hazırsın</h2>
+            <p id="participantStatusMessage">Yönetici soruyu gönderdiğinde burada görünecek.</p>
+          </div>
+          <img
+            class="participant-status-image"
+            src="/assets/participant-status.svg"
+            alt="Renkli yarışma görseli"
+          />
+        </article>
+        <article id="rejectionPanel" class="rejection-panel hidden">
+          <img src="/assets/rejected-error.svg" alt="Hata görseli" />
+          <div>
+            <h3>Katılım Reddedildi</h3>
+            <p id="rejectionMessage">Yönetici yarışmaya katılımınızı onaylamadı.</p>
+          </div>
+        </article>
+        <div class="question" id="questionText"></div>
+        <div id="participantQuestionMediaWrap" class="question-media-wrap hidden">
+          <img id="participantQuestionMediaImage" class="question-media" alt="Soru görseli" />
+        </div>
+        <div id="answerArea"></div>
+        <div id="confirmModal" class="confirm-modal hidden" aria-hidden="true">
+          <div id="confirmModalBackdrop" class="confirm-modal__backdrop"></div>
+          <section class="confirm-modal__content" role="dialog" aria-modal="true" aria-label="Cevap onayı">
+            <p id="confirmText"></p>
+            <p class="muted">Emin misiniz?</p>
+            <div class="participant-row__actions">
+              <button id="confirmSendBtn" class="secondary">Eminim, cevabı gönder</button>
+              <button id="confirmCancelBtn">Hayır, geri dön</button>
+            </div>
+          </section>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/participant.js"></script>
+  </body>
+</html>

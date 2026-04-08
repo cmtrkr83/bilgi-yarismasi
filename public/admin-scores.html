@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puan Tablosu</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page admin-page scores-page">
+      <section class="hero card">
+        <div class="admin-topbar">
+          <div>
+            <h1>Anlık Puan Tablosu</h1>
+            <p>Aktif yarışmanın liderlik sıralaması bu sayfada.</p>
+          </div>
+          <nav class="admin-nav">
+            <a class="nav-link" href="/admin.html">Katılımcı Yönetimi</a>
+            <a class="nav-link" href="/admin-session.html">Yarışma Yönetimi</a>
+            <a class="nav-link" href="/admin-quizzes.html">Quizler</a>
+            <a class="nav-link active" href="/admin-scores.html">Puan Tablosu</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Liderlik Sıralaması</h2>
+        <table class="scoreboard">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>İsim</th>
+              <th>Puan</th>
+            </tr>
+          </thead>
+          <tbody id="scoreRows"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/admin-scores.js"></script>
+  </body>
+</html>

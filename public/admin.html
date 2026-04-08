@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katılımcı Yönetimi</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page admin-page">
+      <section class="hero card">
+        <div class="admin-topbar">
+          <div>
+            <h1>Katılımcı Yönetimi</h1>
+            <p>Katılımcı girişlerini onayla, reddet ve ekran linklerini yönet.</p>
+          </div>
+          <nav class="admin-nav">
+            <a class="nav-link active" href="/admin.html">Katılımcı Yönetimi</a>
+            <a class="nav-link" href="/admin-session.html">Yarışma Yönetimi</a>
+            <a class="nav-link" href="/admin-quizzes.html">Quizler</a>
+            <a class="nav-link" href="/admin-scores.html">Puan Tablosu</a>
+          </nav>
+        </div>
+      </section>
+        <section class="card">
+            <h2>Onay Bekleyen Katılımcılar</h2>
+            <div id="pendingList" class="list"></div>
+        </section>
+      <section class="card">
+        <h2>Onaylı Katılımcılar</h2>
+        <div id="approvedList" class="list"></div>
+      </section>
+
+    </main>
+
+    <script src="/admin-dashboard.js"></script>
+  </body>
+</html>

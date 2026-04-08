@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizler</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page admin-page">
+      <section class="hero card">
+        <div class="admin-topbar">
+          <div>
+            <h1>Quiz Yönetimi</h1>
+            <p>Quiz oluştur, kartlardan düzenle ya da sil.</p>
+          </div>
+          <nav class="admin-nav">
+            <a class="nav-link" href="/admin.html">Katılımcı Yönetimi</a>
+            <a class="nav-link" href="/admin-session.html">Yarışma Yönetimi</a>
+            <a class="nav-link active" href="/admin-quizzes.html">Quizler</a>
+            <a class="nav-link" href="/admin-scores.html">Puan Tablosu</a>
+          </nav>
+        </div>
+      </section>
+
+      <section>
+        <article class="card">
+          <div class="section-header-row">
+            <h2>Quiz Kartları</h2>
+            <button id="createQuizBtn" class="secondary" type="button">Quiz Ekle</button>
+          </div>
+          <p class="muted">Düzenleme ve soru ekleme işlemleri kartın içindeki Düzenle düğmesiyle açılan editör sayfasında yapılır.</p>
+          <div id="quizList" class="quiz-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/admin-quizzes.js"></script>
+  </body>
+</html>

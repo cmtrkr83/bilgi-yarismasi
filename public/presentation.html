@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunum Ekranı</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page presentation-page">
+      <div class="timer-widget hidden floating-timer" id="presentationTimer">
+        <div class="timer-orb"></div>
+        <div class="timer-meta">
+          <span>Kalan Süre</span>
+          <strong id="presentationTimerValue">-- sn</strong>
+        </div>
+      </div>
+
+      <section class="hero card">
+        <h1 id="quizTitle">Bilgi Yarışması</h1>
+      </section>
+
+      <section class="card" id="questionCard">
+        <h2 id="statusLine">Yönetici soruyu gönderene kadar bekleniyor...</h2>
+        <div class="question" id="questionText"></div>
+        <div id="questionMediaWrap" class="question-media-wrap hidden">
+          <img id="questionMediaImage" class="question-media" alt="Soru görseli" />
+        </div>
+        <div class="options" id="questionOptions"></div>
+        <div class="card" id="answerStatusCard">
+          <h3>Katılımcı Cevap Durumu</h3>
+          <div id="answerStatusList" class="list"></div>
+        </div>
+      </section>
+
+      <section class="card" id="leaderboardCard">
+        <h2>Liderlik Tablosu</h2>
+        <table class="scoreboard">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>İsim</th>
+              <th>Puan</th>
+            </tr>
+          </thead>
+          <tbody id="scoreRows"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/presentation.js"></script>
+  </body>
+</html>

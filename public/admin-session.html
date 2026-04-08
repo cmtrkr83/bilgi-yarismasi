@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yarışma Yönetimi</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page admin-page">
+      <section class="hero card">
+        <div class="admin-topbar">
+          <div>
+            <h1>Yarışma Yönetimi</h1>
+            <p>Yarışmayı yayına al, soru gönder, soru bitir ve yayını durdur.</p>
+          </div>
+          <nav class="admin-nav">
+            <a class="nav-link" href="/admin.html">Katılımcı Yönetimi</a>
+            <a class="nav-link active" href="/admin-session.html">Yarışma Yönetimi</a>
+            <a class="nav-link" href="/admin-quizzes.html">Quizler</a>
+            <a class="nav-link" href="/admin-scores.html">Puan Tablosu</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="grid grid-2">
+        <article class="card">
+          <h2>Yayın Kontrolleri</h2>
+          <select id="quizSelect"></select>
+          <button id="startSessionBtn">Yarışmayı Yayına Al</button>
+          <div class="admin-actions session-controls-actions">
+            <button id="nextQuestionBtn" class="secondary">Soruyu Ekranlara Gönder</button>
+            <button id="endQuestionBtn" class="danger">Süreyi Bitir</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Aktif Durum</h2>
+          <div class="notice" id="sessionInfo">Aktif yarışma yok.</div>
+          <div class="notice screen-links" id="screenLinks">
+            Sunum ve katılımcı bağlantıları burada görünecek.
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Aktif Yarışmalar</h2>
+        <div id="activeSessionsList" class="list"></div>
+      </section>
+    </main>
+
+    <script src="/admin-session.js"></script>
+  </body>
+</html>
